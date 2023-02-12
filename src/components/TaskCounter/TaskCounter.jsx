@@ -1,3 +1,5 @@
+
+
 export function TaskCounter({tasks, predicate}) {
-    return <span>{tasks.filter(predicate).length} items left</span>;
+    return <span className='container'>{tasks.filter(predicate).length} items left</span>;
 }

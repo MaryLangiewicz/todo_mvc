@@ -3,11 +3,11 @@ import './inputWrapper.scss'
 import InputTask from "./InputTask";
 import ToggleStatuses from "../ToggleStatuses/ToggleStatuses";
 
-function InputWrapper({tasks, doneAll, handleAddTask, handleAllDone}) {
+function InputWrapper({tasks, handleAddTask, handleAllDone}) {
     return (
         <div className='inputWrapper'>
             {!!tasks.length && (
-            <ToggleStatuses doneAll={doneAll} handleAllDone={handleAllDone} />
+            <ToggleStatuses tasks={tasks} handleAllDone={handleAllDone} />
                 )}
             <InputTask
                 handleAddTask={handleAddTask}

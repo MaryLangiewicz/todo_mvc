@@ -1,9 +1,9 @@
 import "./toggleStatuses.scss";
 
-function ToggleStatuses({handleAllDone, doneAll}) {
+function ToggleStatuses({handleAllDone, tasks}) {
     return (
         <i
-            className={doneAll ? 'toggleStates done': 'toggleStates'}
+            className={tasks.every((task) => task.status === true) ? 'toggleStates done': 'toggleStates'}
             onClick={handleAllDone}
         ></i>
     );
