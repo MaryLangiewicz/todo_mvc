@@ -6,7 +6,7 @@
 
     &.done {
         .taskStatus {
-            background: green;
+            background: lightskyblue;
         }
 
         .taskName {
@@ -19,9 +19,9 @@
         width: 20px;
         height: 20px;
         display: inline-block;
-        background: red;
+        background: deepskyblue;
         cursor: pointer;
-        border-radius: 50%;
+        border-radius: 25%;
         margin: 5px 10px 5px 5px;
     }
 
