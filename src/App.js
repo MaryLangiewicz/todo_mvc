@@ -2,7 +2,6 @@ import {useState} from "react";
 import Header from "./components/Header/Header";
 import InputWrapper from "./components/InputWrapper/InputWrapper";
 import Tasks from "./components/Tasks/Tasks";
-import * as PropTypes from "prop-types";
 import {TaskCounter} from "./components/TaskCounter/TaskCounter";
 import {Filters} from "./components/Filters/Filters";
 import {ClearCompleted} from "./components/ClearCompleted/ClearCompleted";
@@ -19,25 +18,17 @@ function* genId() {
 const nextId = genId();
 
 function App() {
-    const [value, setValue] = useState('');
     const [tasks, setTasks] = useState([]);
     const [filter, setFilter] = useState('all');
     const [doneAll, setDoneAll] = useState(false);
 
 
-    function handleInput(event) {
-        setValue(event.target.value);
-    }
-
-    function handleAddTask(event) {
-        if (event.key === 'Enter') {
+    function handleAddTask(value) {
             setTasks([...tasks, {
                 id: nextId.next().value,
                 name: value,
                 status: false
             }]);
-            setValue('');
-        }
     }
 
     function handleChangeStatus(task) {
@@ -75,9 +66,7 @@ function App() {
                 tasks={tasks}
                 doneAll={doneAll}
                 handleAllDone={handleAllDone}
-                value={value}
                 handleAddTask={handleAddTask}
-                handleInput={handleInput}
             />
 
             {!!tasks.length && (
